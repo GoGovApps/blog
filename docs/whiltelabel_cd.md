@@ -38,3 +38,31 @@ This calls for some automation.  Here's some more context of our project
 - Google Maps
 
 Many of the steps above are automatable with the vast toolset provided by Fastlane.  But the fact we are whitelabeling applications adds a layer of complexity for just about every step.  
+
+## Getting Builds off Developer Machines
+
+Our engineering team identified this as the number one goal, given the vast surface area for failure if done manually.  We knew we could use fastlane, and we created some modifications and supplements. 
+
+We started by defining a build manifest.  Looking at the workflow above, we decided that when we internally approve customer changes, we'd generate an S3 object in AWS.  This would allow us to trigger a Lambda function that would create a commit in our mobile Flutter repository.  This commit would then invoke Github Actions workflows that would run tests and start the build process.
+
+We felt that in the early stages of this process, buying a Mac Mini would be the easiest approach to running these workflows.  Each build takes about 15-20 minutes, and we'd burn through Github credits very quickly.  Setting up the Github Runner was relatively straightforward, but we ran into some [major problems we were able to work through](/docs/build_machine.md)
+
+With the machine set up, it was time to start filling in the workflow to take a load off the manual labor.  
+
+## Automating all the things!
+
+We had to make a few modifications to some of the [Firebase Fastlane plugins](https://github.com/GoGovApps/fastlane-firebase-plugin), and we were able to generate FCM projects, add iOS clients, and download the GoogleServices.plist configuration file for build.
+
+Using `wget` were able to download the graphical assets from the build manifest.  From here, we could generate all the [icon sizes](https://github.com/fastlane-community/fastlane-plugin-appicon)
+
+## Fastlane Sessions
+
+Fastlane sessions last about 30 days.  After that, you'll need to run through a login process that requires 2FA involvement.  Oh no! Our automation is ruined...or is it?
+
+At GOGov, we never give into an engineering challenge.  We developed a cronjob that will run in our cluster and complete an entire 2FA flow, without user interaction.  The configuration based script is capable of updating k8s secrets and Github Action secrets.  We used RingCentral, which is used across our organization, to ingest an SMS message.  The script monitors an inbox after triggering the 2FA with [Fastlane Spaceship](https://docs.fastlane.tools/best-practices/continuous-integration/#authentication-with-apple-services).  Look ma! no hands!
+
+## iOS push certificates
+
+Things that expire are no fun to juggle manually.  As engineering teams, we have to deal with SSL certificates, rotating secrets, and one or two other things :) in our every day workflow.  Having a growing number of customers with scattered expiring push certificates is a nightmare, so we'll need to automate that too!
+
+We solved this with Fastlane as well.  Each customer gets a branch named in coordination with the Bundle ID of the application.  This runs nightly, checks if a certificate is 45 days away from expiring, and generates a new one if necessary.  This new certificate can then be sent to FCM, using similar tooling as that in the build process.
