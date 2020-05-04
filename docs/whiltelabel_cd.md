@@ -2,6 +2,10 @@
 
 At GOGov, we provide cities and municipalities with the ability to coordinate projects and improvements with their constituents.  Each customer gets an Android and an iOS app, and as we look to accelerate our growth, this process must be well documented and scalable.  
 
+<p align="center">
+  <img src="https://www.websitemagazine.com/images/blog/whitelabel-can.png">
+</p>
+
 iOS and Android apps require a non-trivial number of tasks to get to a published state on their respective stores.  Let's take a look at the iOS workflow.
 
 1. Customer provides basic branding information such as a background image, and colors.
