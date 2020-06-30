@@ -4,6 +4,12 @@ layout: default
 
 # Articles
 
+## White Labeling Apps
+
+Tools like Fastlane make deploying and managing your companies app a breeze.  But how do things change when the app is a dynamic package, "white labeled" and managed on a per customer basis?
+
+[Read More](/docs/whitelabel_cd.md)
+
 
 ## Reflections on an AWS Migration for a Legacy System
 
