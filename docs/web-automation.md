@@ -42,5 +42,6 @@ The runner also manages retries, reducing perceived 'flaky' tests and their impa
 
 When the tests complete, the runner will let you know how much time you've saved.  We are at 107 scenarios, and with a concurrency of 25, we are saving about 45 minutes per run!
 
+![Image of cucumber-lambda results](https://s3.amazonaws.com/blog.govoutreach.com/Screen+Shot+2020-08-27+at+11.56.47+PM.png)
 
 You can find the code [here](https://github.com/GoGovApps/cucumber-lambda)
