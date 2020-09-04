@@ -4,6 +4,15 @@ layout: default
 
 # Articles
 
+
+## How we reindex Elasticsearch safely
+
+Elasticsearch is very powerful, but when you are starting a new project, its hard to know how bad your mapping is :D 
+
+In our architecture, we can update our mappings with no downtime.
+
+[Read More](/docs/elasticsearch.md)
+
 ## White Labeling Apps
 
 Tools like Fastlane make deploying and managing your companies app a breeze.  But how do things change when the app is a dynamic package, "white labeled" and managed on a per customer basis?
