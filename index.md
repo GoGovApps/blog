@@ -11,7 +11,7 @@ Elasticsearch is very powerful, but when you are starting a new project, its har
 
 In our architecture, we can update our mappings with no downtime.
 
-[Read More](/docs/elasticsearch.md)
+[Read More](/docs/elasticsearch_reindex.md)
 
 ## White Labeling Apps
 
