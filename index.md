@@ -4,6 +4,13 @@ layout: default
 
 # Articles
 
+
+## Building context-enriched audit trails
+
+Building audit logs can be tedious.  But ultimately, the source of truth typically is your database.  Processing post-commit database changes with Kinesis provides an easy-to-maintain solution to tracking any change to any record.  Adding application context is a little bit trickier, but at GOGov, we <3 to engineer solutions.
+
+[Read More](/docs/audits.md)
+
 ## White Labeling Apps
 
 Tools like Fastlane make deploying and managing your companies app a breeze.  But how do things change when the app is a dynamic package, "white labeled" and managed on a per customer basis?
