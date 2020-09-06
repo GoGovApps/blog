@@ -6,7 +6,7 @@ introduces a high-risk deployment that is difficult to verify.
 
 Our goal was to create a pattern that would allow us to audit records, and then enrich them with context as we continued to build out microservices.
 
-We implemented [Maxwell](https://github.com/zendesk/maxwell) to provide our infrastructure with three main areas of leverage:
+We implemented [Maxwell](https://github.com/zendesk/maxwell) to provide our infrastructure with three main capabilities:
 - Process audit logs
 - Process database changes to Elasticsearch
 - Potentially to process into a cache invalidation scheme (TBD)
@@ -20,7 +20,7 @@ We used maxwell to pump our database changes through Kinesis.  We then experimen
 We finally landed on a solution, with a [slight improvement](https://github.com/zendesk/maxwell/pull/1533) to Maxwell.  The key was to allow Maxwell to produce messages
 to Kinesis by thread_id.  This means we could link changes back to the context they occurred in.  But how did we get the context data through to the Kinesis processor?
 
-Using the concept of a "black hole database", we built a middleware in our Sinatra applications capable of writing an insert statement after any POST, PUT, PATCH request.
+Using the concept of a [black hole table](https://dev.mysql.com/doc/refman/8.0/en/blackhole-storage-engine.html), we built a middleware in our Sinatra applications capable of writing an insert statement after any POST, PUT, PATCH request.
 Then, downstream, the KCL processor could build a cache of contexts.  When the KCL processor came across a record change it cared about, it could look at the cache 
 of contexts and write an audit log with the enriched information.  
 
