@@ -18,7 +18,7 @@ Additionally, the KCL application is capable of updating and removing records fr
 The asyncronous reindex task can be monitored:
 
 ```
->> GET /_tasks
+>> GET /_tasks?actions=indices:data/write/reindex
 <<
 {
                 ...
