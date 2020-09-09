@@ -4,7 +4,6 @@ layout: default
 
 # Articles
 
-
 ## How we reindex Elasticsearch safely
 
 Elasticsearch is very powerful, but when you are starting a new project, its hard to know how bad your mapping is :D 
@@ -12,6 +11,13 @@ Elasticsearch is very powerful, but when you are starting a new project, its har
 In our architecture, we can update our mappings with no downtime.
 
 [Read More](/docs/elasticsearch_reindex.md)
+
+
+## Building context-enriched audit trails
+
+Building audit logs can be tedious.  But ultimately, the source of truth typically is your database.  Processing post-commit database changes with Kinesis provides an easy-to-maintain solution to tracking any change to any record.  Adding application context is a little bit trickier, but at GOGov, we <3 to engineer solutions.
+
+[Read More](/docs/audits.md)
 
 ## White Labeling Apps
 
