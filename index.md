@@ -4,6 +4,13 @@ layout: default
 
 # Articles
 
+## Cucumber in the Clouds
+
+Writing Gherkin-style cucumber tests is a great way to test microservices and make sure that all those "under the hood" changes don't break user stories that have been building up over the years.  These are the most expensive tests you can write though, so they better at least be fast.
+
+[Read More](/docs/web-automation.md)
+
+
 ## White Labeling Apps
 
 Tools like Fastlane make deploying and managing your companies app a breeze.  But how do things change when the app is a dynamic package, "white labeled" and managed on a per customer basis?
