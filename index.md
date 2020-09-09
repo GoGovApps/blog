@@ -4,6 +4,7 @@ layout: default
 
 # Articles
 
+
 ## How we reindex Elasticsearch safely
 
 Elasticsearch is very powerful, but when you are starting a new project, its hard to know how bad your mapping is :D 
@@ -11,6 +12,12 @@ Elasticsearch is very powerful, but when you are starting a new project, its har
 In our architecture, we can update our mappings with no downtime.
 
 [Read More](/docs/elasticsearch_reindex.md)
+
+## Cucumber in the Clouds
+
+Writing Gherkin-style cucumber tests is a great way to test microservices and make sure that all those "under the hood" changes don't break user stories that have been building up over the years.  These are the most expensive tests you can write though, so they better at least be fast.
+
+[Read More](/docs/web-automation.md)
 
 
 ## Building context-enriched audit trails
