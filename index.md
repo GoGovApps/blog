@@ -4,6 +4,14 @@ layout: default
 
 # Articles
 
+## How we reindex Elasticsearch safely
+
+Elasticsearch is very powerful, but when you are starting a new project, its hard to know how bad your mapping is :D 
+
+In our architecture, we can update our mappings with no downtime.
+
+[Read More](/docs/elasticsearch_reindex.md)
+
 
 ## Building context-enriched audit trails
 
